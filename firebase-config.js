@@ -1,14 +1,7 @@
-/* FACTURA AW — Firebase Config
-   Modo CLOUD activado.
-   Guarda datos editables en Realtime Database.
-   No guarda PDFs en Storage: los PDFs se regeneran desde la factura.
-*/
-
 window.FACTURA_FIREBASE_CONFIG = {
   enabled: true,
   companyId: "aw",
 
-  // No guardar PDF en Firebase Storage
   savePdfToStorage: false,
   useStorage: false,
 
