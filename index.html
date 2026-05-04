@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>FACTURA AW</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="firebase-config.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div id="toast" class="toast hidden"></div>
+  <section id="login" class="login">
+    <div class="login-card">
+      <div class="logo">AW</div><h1>FACTURA</h1><p>Cloud Firebase REST</p>
+      <label>Email <input id="email" type="email" value="shaniwaris80@gmail.com"></label>
+      <label>Contraseña <input id="password" type="password"></label>
+      <button id="loginBtn" class="btn primary full">Entrar</button>
+      <p id="loginMsg" class="error"></p>
+    </div>
+  </section>
+  <div id="app" class="app hidden">
+    <aside id="side" class="side">
+      <div class="brand"><div class="logo small">AW</div><div><b>FACTURA</b><span>Cloud v2.1 FIX</span></div></div>
+      <nav id="nav"></nav>
+      <button id="refreshBtn" class="btn ghost full">Recargar cloud</button>
+      <button id="themeBtn" class="btn ghost full">Modo negro</button>
+      <button id="logoutBtn" class="btn ghost full">Salir</button>
+    </aside>
+    <main class="main">
+      <header class="top"><button id="menuBtn" class="menu">☰</button><div><h2 id="title">Inicio</h2><p id="status">Conectando...</p></div><div class="top-actions"><button data-go="invoices" class="btn primary">+ Factura</button><button data-go="purchases" class="btn">+ Compra</button></div></header>
+      <section id="view" class="view"></section>
+    </main>
+  </div>
+  <dialog id="dialog"><div id="dialogBody"></div><div class="dialog-actions"><button id="dialogClose" class="btn">Cerrar</button></div></dialog>
+  <datalist id="productList"></datalist><datalist id="clientList"></datalist><datalist id="supplierList"></datalist>
+</body>
+</html>
