@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>FACTURA AW</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.8.2/dist/jspdf.plugin.autotable.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script defer src="firebase-config.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <section id="login" class="login hidden">
+    <div class="login-card">
+      <div class="logo big">AW</div>
+      <h1>FACTURA AW</h1>
+      <p class="muted">Cloud sincronizado con Firebase</p>
+      <input id="email" type="email" placeholder="Email">
+      <input id="password" type="password" placeholder="Contraseña">
+      <button id="loginBtn" class="btn primary full">Entrar</button>
+      <p id="loginMsg" class="error"></p>
+      <p class="hint">Si la base está vacía, el primer usuario se configura como admin.</p>
+    </div>
+  </section>
+
+  <div id="shell" class="shell hidden">
+    <aside id="side" class="side">
+      <div class="brand"><div class="logo">AW</div><div><b>FACTURA</b><small>Cloud v2.0</small></div></div>
+      <nav id="nav"></nav>
+      <div class="side-bottom">
+        <button id="theme" class="btn ghost full">Modo negro</button>
+        <button id="logout" class="btn ghost full">Salir</button>
+      </div>
+    </aside>
+    <main class="main">
+      <header class="top">
+        <button id="menu" class="icon">☰</button>
+        <div><h1 id="title">Inicio</h1><p id="status" class="muted">Conectando...</p></div>
+        <div class="quick"><button id="qInv" class="btn primary">+ Factura</button><button id="qPur" class="btn">+ Compra</button></div>
+      </header>
+      <section id="view" class="view"></section>
+    </main>
+  </div>
+
+  <dialog id="dlg"><div id="dlgBody"></div><div class="dlgFoot"><button id="dlgClose" class="btn">Cerrar</button></div></dialog>
+  <datalist id="productList"></datalist>
+  <datalist id="clientList"></datalist>
+  <datalist id="supplierList"></datalist>
+</body>
+</html>
